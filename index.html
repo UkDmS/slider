@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slick Playground</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .slider {
+                width: 50%;
+                margin: 100px auto;
+        }
+        .slider div.w{
+            flex-direction: row;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-slide img {
+            /*width: 100%;*/
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
+
+
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
+
+        .slick-active {
+            opacity: .5;
+        }
+
+        .slick-current {
+            opacity: 1;
+        }
+        .slick-slide img.qq{
+            width: 90%;
+            height: 150px;
+        }
+            .elem{
+        height: 80px;
+        width: 30%;
+        background-color: black;
+        margin-right: 5px;
+        margin-top: 20px;
+   }
+   .slick-prev{
+       left: 50%;
+
+                 }
+       .slick-prev  {
+                    top: 0!important;
+                 }
+      .slick-next  {
+                    top: 100%!important;
+                    right: 50%!important;
+                 }
+                 .usr-icons{
+
+                 }
+
+    </style>
+</head>
+<body>
+
+    <section class="vertical-center-4 slider">
+        <div class="w">
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        </div>
+      <div class="w">
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        </div> <div class="w">
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        <div class='elem'>        <div class="qq"></div></div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function() {
+            $(".vertical-center-4").slick({
+                dots: false,
+                vertical: true,
+                centerMode: true,
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                prevArrow: '<img src="icons/top.gif" class="slick-prev">',
+                nextArrow: '<img src="icons/bottom.gif" class="slick-next">'
+            });
+        });
+</script>
+ <script>
+ $(document).ready(function(){
+    var item = document.getElementsByClassName("elem"),
+    skew = '-10',
+    width=$(item).outerWidth(),
+    translate = Math.tan((-1)*skew / 180 * Math.PI) *  width,
+    k;
+
+ $(".elem").each(function (index, el){
+    k = (-1)*(index % 3-3);
+    console.log(k);
+    $(el).css("transform","skewY("+skew+"deg) translateY("+translate*k+"px)");
+});
+/*        var a = point[0].getBoundingClientRect();
+        console.log(a.left) ;
+        console.log(a.width) ;*/
+        });
+ </script>
+</body>
+</html>
